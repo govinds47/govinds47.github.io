@@ -1,0 +1,30 @@
+---
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title}>
+    <Breadcrumbs title={frontmatter.title}/>
+    <h1 id="title">{frontmatter.title}</h1>
+    <hr style="width: 75%;" />
+    <div id="mainBlock">
+        <slot />
+    </div>
+</BaseLayout>
+
+<style>
+    #title {
+        text-align: center;
+    }
+    #mainBlock {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    @media screen and (max-width: 500px) {
+        #mainBlock {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    }
+</style>

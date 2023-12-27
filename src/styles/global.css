@@ -1,0 +1,25 @@
+body {
+    font-family: Teko;
+    color: whitesmoke;
+    font-size: 25px;
+    margin: 0;
+    background-color: black;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+#mainbody {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}

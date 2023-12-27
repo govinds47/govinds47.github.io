@@ -1,9 +1,31 @@
 ---
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
+const allPosts = await Astro.glob("./projects/*.md");
 ---
 
-
 <BaseLayout title="Projects">
-    This is my projects page.
+    <Breadcrumbs />
+    <div>
+        <ul>
+            {
+                allPosts.map((post) => (
+                    <li>
+                        <a href={post.url} style="color: rgb(0, 238, 255);">
+                            {post.frontmatter.title}
+                            <p style="color: whitesmoke;">
+                                {post.frontmatter.desc}
+                            </p>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
 </BaseLayout>
+
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>

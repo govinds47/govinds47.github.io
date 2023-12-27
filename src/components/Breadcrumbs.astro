@@ -1,0 +1,44 @@
+---
+const urlsection = Astro.url.pathname.split("/");
+const dirs = [];
+urlsection.forEach((element) => {
+    if (element != "") {
+        dirs.push(element);
+    }
+});
+const urls = [];
+dirs.forEach((element, index) => {
+    if (urls.length != 0) {
+        urls.push(urls[index - 1] + "/" + dirs[index]);
+    } else {
+        urls.push("/" + dirs[0]);
+    }
+});
+const {title} = Astro.props;
+if (title) {
+    dirs[dirs.length-1] = String(title);
+}
+---
+
+<style>
+    #parent {
+        margin-left: 15px;
+    }
+    a {
+        color: azure;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+<div id="parent">
+    <a href="/">Home</a>
+    {
+        dirs.map((dir, i) => (
+            <span>
+                &nbsp;&gt;&nbsp; <a href={urls[i]}>{dir[0].toUpperCase() + dir.slice(1)}</a>{" "}
+            </span>
+        ))
+    }
+</div>
