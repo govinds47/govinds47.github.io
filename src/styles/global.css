@@ -1,5 +1,5 @@
 body {
-    font-family: Teko;
+    font-family: 'Teko';
     color: whitesmoke;
     font-size: 25px;
     margin: 0;
@@ -15,6 +15,10 @@ body {
     flex-grow: 1;
 }
 
+a {
+    color: aquamarine;
+}
+
 h1,
 h2,
 h3,
@@ -22,4 +26,5 @@ h4,
 h5,
 h6 {
     font-weight: normal;
+    font-family: Oswald;
 }

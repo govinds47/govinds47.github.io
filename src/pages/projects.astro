@@ -12,10 +12,10 @@ const allPosts = await Astro.glob("./projects/*.md");
                 allPosts.map((post) => (
                     <li>
                         <a href={post.url} style="color: rgb(0, 238, 255);">
-                            {post.frontmatter.title}
-                            <p style="color: whitesmoke;">
+                            {post.frontmatter.title} <br>
+                            <span style="color: whitesmoke;">
                                 {post.frontmatter.desc}
-                            </p>
+                            </span>
                         </a>
                     </li>
                 ))
